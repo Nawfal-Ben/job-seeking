@@ -12,26 +12,44 @@ import About from "./pages/About";
 // layouts
 import Root from "./layouts/Root";
 import Help from "./layouts/Help";
-import Faq from "./pages/faq";
-import Contact from "./pages/contact";
+import Faq from "./pages/help/faq";
+import Contact from "./pages/help/contact";
+import NotFound from "./pages/NotFound";
+import CareersLayout from "./layouts/CareersLayout";
+import Careers, { careersLoader } from "./pages/careers/Careers";
+import CareerDetails, {
+    careerDetailsLoader,
+} from "./pages/careers/CareerDetails";
+import CareerError from "./pages/careers/CareerError";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
+            <Route
+                path="careers"
+                element={<CareersLayout />}
+                errorElement={<CareerError />}
+            >
+                <Route index element={<Careers />} loader={careersLoader} />
+                <Route
+                    path=":id"
+                    element={<CareerDetails />}
+                    loader={careerDetailsLoader}
+                />
+            </Route>
             <Route path="help" element={<Help />}>
                 <Route path="faq" element={<Faq />} />
                 <Route path="contact" element={<Contact />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
         </Route>
     )
 );
 
 function App() {
-    return (
-        <RouterProvider router={router} />
-    );
+    return <RouterProvider router={router} />;
 }
 
 export default App;

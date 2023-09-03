@@ -112,7 +112,29 @@ form textarea {
 }
 
 /* careers list */
+.careers a {
+    background-color: rgb(0, 0, 0, 0.2);
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.careers a:hover p {
+    color: var(--primary);
+}
+.careers p {
+    margin: 0 auto 5px; 
+}
+.careers span {
+    font-size: 0.8em;
+    color: #bbb;
+}
 
 /* careers details */
+.career-details {
+    background-color: rgb(0, 0, 0, 0.2);
+    padding: 20px;
+}
 
 /* breadcrumbs */
