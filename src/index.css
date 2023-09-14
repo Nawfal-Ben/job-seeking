@@ -104,11 +104,13 @@ form input {
     width: 300px;
     margin-bottom: 20px;
     padding: 5px;
+    color: black;
 }
 form textarea {
     width: 300px;
     display: block;
     margin-bottom: 20px;
+    color: black;
 }
 
 /* careers list */
@@ -138,3 +140,20 @@ form textarea {
 }
 
 /* breadcrumbs */
+.crumbs {
+    max-width: 1200px;
+    margin: 10px auto;
+}
+.crumbs > * {
+    display: inline-block;
+}
+.crumbs .crumb:not(:last-child):after {
+    content: '>';
+    margin-left: 10px;
+}
+.crumbs .crumb:not(:first-child) {
+    margin-left: 10px;
+}
+.crumbs .crumb a {
+    text-decoration: none;
+}

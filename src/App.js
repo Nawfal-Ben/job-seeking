@@ -12,10 +12,12 @@ import About from "./pages/About";
 // layouts
 import Root from "./layouts/Root";
 import Help from "./layouts/Help";
-import Faq from "./pages/help/faq";
-import Contact from "./pages/help/contact";
-import NotFound from "./pages/NotFound";
 import CareersLayout from "./layouts/CareersLayout";
+
+// pages
+import Faq from "./pages/help/faq";
+import Contact, { contactForm } from "./pages/help/contact";
+import NotFound from "./pages/NotFound";
 import Careers, { careersLoader } from "./pages/careers/Careers";
 import CareerDetails, {
     careerDetailsLoader,
@@ -41,7 +43,11 @@ const router = createBrowserRouter(
             </Route>
             <Route path="help" element={<Help />}>
                 <Route path="faq" element={<Faq />} />
-                <Route path="contact" element={<Contact />} />
+                <Route
+                    path="contact"
+                    element={<Contact />}
+                    action={contactForm}
+                />
             </Route>
             <Route path="*" element={<NotFound />} />
         </Route>
